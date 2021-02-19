@@ -7,6 +7,7 @@ const MainBase = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   /* background: url(/images/bg-code-green.svg);
   background-repeat: no-repeat;
   background-position: center; */

@@ -1,24 +1,39 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 
 const HeaderBase = styled.div`
-    border: 2px solid;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    min-height: 5vh;
-    display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
-    padding: 10px;
-    padding-bottom: 3px;
+  border: 0;  
+  min-height: 5vh;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: 10px;
+  padding-bottom: 3px;
+  ${breakpointsMedia({
+    md: css`
+      border: 2px solid;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      `,
+  })}
 `;
 
 const HeaderName = styled.div`
-    display: flex;
-    font-family: ${({ theme }) => theme.fontFamilyLogo};
-    font-size: 36px;
-    color: ${({ theme }) => theme.colors.primary.main.contrastText};
+  display: flex;
+  font-family: ${({ theme }) => theme.fontFamilyLogo};
+  font-size: 36px;
+  color: ${({ theme }) => theme.colors.primary.main.contrastText};
+  margin-left: auto;
+  margin-right: auto;
+  ${breakpointsMedia({
+    md: css`
+      margin-left: 0;
+      margin-right: 0;
+    `,
+  })}
 `;
 
 const HeaderColor = styled.span`
@@ -37,8 +52,15 @@ const HeaderText = styled.div`
 `;
 
 const HeaderLanguages = styled.div`
-  display: flex;
+  display: none;
   margin-left: auto;
+  margin-right: auto;
+  ${breakpointsMedia({
+    md: css`
+      display: flex;
+      margin-right: 0;
+    `,
+  })}
 `;
 
 const HeaderImg = styled.img`
@@ -55,7 +77,7 @@ export default function Header() {
           PENA
         </HeaderColor>
       </HeaderName>
-      <HeaderText>"Inovação e aprendizado constante"</HeaderText>
+      <HeaderText>&quot;Inovação e aprendizado constante&quot;</HeaderText>
       <HeaderLanguages>
         <HeaderImg src="/images/brasil.png" />
         <HeaderImg src="/images/united-states.png" />
