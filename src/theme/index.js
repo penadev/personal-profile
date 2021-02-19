@@ -14,16 +14,26 @@ export const colors = {
       color: '#F1F1F1',
     },
   },
+  button: {
+    primary: {
+      bgcolor: '#81C784',
+      contrastText: '#000',
+    },
+    secondary: {
+      bgcolor: '#5A8B5C',
+      contrastText: '#D6D6D6',
+    },
+  },
   primary: {
     main: {
       color: '#303030',
-      contrastText: '#fff',
+      contrastText: '#C4C4C4',
     },
   },
   secondary: {
     main: {
       color: '#FB7B6B',
-      contrastText: '#fff',
+      contrastText: '#6FCF97',
     },
   },
   tertiary: {
@@ -56,5 +66,7 @@ export default {
   borderRadius: '8px',
   fontFamily: '\'Lato\', sans-serif',
   fontFamilyButton: '\'Roboto\', sans-serif',
+  fontFamilyLogo: '\'Fugaz One\', sans-serif',
+  fontFamilyFooter: '\'Libre Barcode 39 Text\', sans-serif',
   transition: '200ms ease-in-out',
 };

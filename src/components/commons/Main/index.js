@@ -2,11 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MainBase = styled.div`
-  border: 1px solid;
   min-height: 60vh;
+  background: #121212;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background: url(/images/bg-code-green.svg);
+  background-repeat: no-repeat;
+  background-position: center; */
 `;
 
 export default function Main() {

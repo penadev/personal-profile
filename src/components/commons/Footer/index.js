@@ -2,15 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterBase = styled.div`
-  border: 1px solid;
   min-height: 5vh;
   display: flex;
-  justify-content: center;
+  font-family: ${({ theme }) => theme.fontFamilyFooter};
+  color: ${({ theme }) => theme.colors.primary.main.contrastText};
+  font-size: 48px;
+  justify-content: left;
   align-items: center;
+  padding: 5px;
+`;
+
+const FooterLogo = styled.img`
+  font-family: ${({ theme }) => theme.fontFamily};
+  margin-left: auto;
+  max-height: 50px;
 `;
 
 export default function Footer() {
   return (
-    <FooterBase>Footer</FooterBase>
+    <FooterBase>
+      Fernando Pena
+      <FooterLogo src="/images/react-next.png" max-height="50px" margin-left="auto" />
+    </FooterBase>
   );
 }
