@@ -115,7 +115,6 @@ const ButtonRight = styled(Button)`
   font-weight: 400;
   margin-left: auto;
   padding-left: 10px;
-  })}
 `;
 
 const HeaderLanguages = styled.div`
