@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const HeaderStyle = styled.h1`
-    font-size: 20px;
+const HeaderBase = styled.div`
+    border: 1px solid;
+    min-height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export default function Header() {
   return (
-    <HeaderStyle>Fernando Pena</HeaderStyle>
+    <HeaderBase>Fernando Pena</HeaderBase>
   );
 }
