@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 
 const FooterBase = styled.div`
   min-height: 5vh;
@@ -7,9 +8,20 @@ const FooterBase = styled.div`
   font-family: ${({ theme }) => theme.fontFamilyFooter};
   color: ${({ theme }) => theme.colors.primary.main.contrastText};
   font-size: 48px;
-  justify-content: left;
+  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
+  margin-top: auto;
   padding: 5px;
+  /* position: absolute;
+  bottom: 0;
+  max-width: 1366px;
+  width: 100%; */
+  ${breakpointsMedia({
+    md: css`
+      justify-content: left;
+    `,
+  })}
 `;
 
 const FooterLogo = styled.img`

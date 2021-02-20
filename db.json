@@ -1,0 +1,25 @@
+{
+    "portifolio": [
+        {
+            "key": "1",
+            "skill": "Next.js",
+            "image": "/images/avengers.jpg",
+            "text": "Quiz Avengers - Alura",
+            "link": "http://google.com"
+        },
+        {
+            "key": "2",
+            "skill": "Chabot",
+            "image": "/images/palestra.png",
+            "text": "Palestra Chatbot - São Leopoldo",
+            "link": "http://google.com"
+        },
+        {
+            "key": "3",
+            "skill": "Chabot",
+            "image": "/images/chatbot.png",
+            "text": "Chatbot - SAP Conversational AI",
+            "link": "http://google.com"
+        }
+    ]
+}

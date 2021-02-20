@@ -24,6 +24,14 @@ export const colors = {
       contrastText: '#D6D6D6',
     },
   },
+  cards: {
+    bgcolor: '#303030',
+    color: '#0098BA',
+    secondary: {
+      bgcolor: '#C4C4C4',
+      color: '#008D0E',
+    }
+  },
   primary: {
     main: {
       color: '#303030',
