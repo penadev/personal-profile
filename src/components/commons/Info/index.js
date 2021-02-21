@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
+import { useRouter } from 'next/router';
 import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 
@@ -81,7 +82,19 @@ const InfoOptionsRight = styled(InfoOptions)`
   padding: 0px;
 `;
 
-const Button = styled.button`
+const selectedButton = css`
+  color: ${({ theme }) => theme.colors.button.primary.contrastText};
+  background: ${({ theme }) => theme.colors.button.primary.bgcolor};
+  font-weight: 700;
+`;
+
+const unselectedButton = css`
+  color: ${({ theme }) => theme.colors.button.secondary.contrastText};
+  background: ${({ theme }) => theme.colors.button.secondary.bgcolor};
+  font-weight: 400;
+`;
+
+const Button = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,7 +107,6 @@ const Button = styled.button`
   background: ${({ theme }) => theme.colors.button.primary.bgcolor};
   transition: opacity ${({ theme }) => theme.transition};
   border: 0px;
-  font-weight: 700;
   padding-left: 5px;
   :hover{
     color: ${({ theme }) => theme.colors.button.primary.contrastText};
@@ -107,12 +119,10 @@ const Button = styled.button`
       padding: 0px;
     `,
   })}
+  ${({ isSelected }) => (isSelected ? selectedButton : unselectedButton)}
 `;
 
 const ButtonRight = styled(Button)`
-  color: ${({ theme }) => theme.colors.button.secondary.contrastText};
-  background: ${({ theme }) => theme.colors.button.secondary.bgcolor};
-  font-weight: 400;
   margin-left: auto;
   padding-left: 10px;
 `;
@@ -131,6 +141,8 @@ const HeaderLanguages = styled.div`
 `;
 
 export default function Info() {
+  const router = useRouter();
+
   return (
     <InfoBase>
       <InfoLinks>
@@ -151,10 +163,28 @@ export default function Info() {
         Com vasta experiência em projetos de grandes porte e  implementação.
       </InfoText>
       <InfoOptions>
-        <Button>Portifólio</Button>
+        <Button
+          isSelected={router.pathname === '/'}
+          onClick={(event) => {
+            event.preventDefault();
+            router.push('/');
+          }}
+        >
+          Portifólio
+        </Button>
         <InfoOptionsRight>
-          <ButtonRight>Skills</ButtonRight>
-          <ButtonRight>Sobre mim</ButtonRight>
+          <ButtonRight
+            isSelected={router.pathname === '/skill'}
+            onClick={() => router.push('/skill', undefined, { shallow: true })}
+          >
+            Skills
+          </ButtonRight>
+          <ButtonRight
+            isSelected={router.pathname === '/about'}
+            onClick={() => router.replace('/about')}
+          >
+            Sobre mim
+          </ButtonRight>
         </InfoOptionsRight>
       </InfoOptions>
     </InfoBase>
