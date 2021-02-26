@@ -1,9 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { ReactLogo, NextDotJs } from '@styled-icons/simple-icons';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 
 const FooterBase = styled.div`
-  min-height: 5vh;
+  min-height: 65px;
   display: flex;
   font-family: ${({ theme }) => theme.fontFamilyFooter};
   color: ${({ theme }) => theme.colors.primary.main.contrastText};
@@ -17,18 +18,12 @@ const FooterBase = styled.div`
   background: url(/images/bg-code-blue.png), #161616;
   ${breakpointsMedia({
     md: css`
+      position: fixed;
+      bottom: 0;
       justify-content: left;
       margin-top: auto;
-      position: absolute;
-      bottom: 0;
     `,
   })}
-`;
-
-const FooterLogo = styled.img`
-  font-family: ${({ theme }) => theme.fontFamily};
-  margin-left: auto;
-  max-height: 50px;
 `;
 
 const FooterBox = styled.div`
@@ -37,6 +32,27 @@ const FooterBox = styled.div`
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  justify-content: left;
+  align-items: center;
+  padding: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+`;
+
+const LogoReact = styled(ReactLogo)`
+  display: flex;
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  color: #29d6fd;
+`;
+
+const LogoNext = styled(NextDotJs)`
+  display: flex;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  color: #29d6fd;
 `;
 
 export default function Footer() {
@@ -44,7 +60,8 @@ export default function Footer() {
     <FooterBase>
       <FooterBox>
         Fernando Pena
-        <FooterLogo src="/images/react-next.png" max-height="50px" margin-left="auto" />
+        <LogoReact />
+        <LogoNext />
       </FooterBox>
     </FooterBase>
   );

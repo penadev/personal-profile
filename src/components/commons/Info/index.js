@@ -1,33 +1,14 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import { useRouter } from 'next/router';
 import styled, { css } from 'styled-components';
+import Link from 'next/link';
+import { Github, Linkedin } from '@styled-icons/simple-icons';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 import Header from '../Header';
 
 const InfoBase = styled.div`
-  /* border: 1px solid green; */
-  /* min-height: 30vh;
-  min-width: 450px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  padding: 10px;
-  justify-content: center;
-  align-items: center; */
-  /* position: absolute;
-  width: 1440px;
-  height: 323px;
-  left: 1px;
-  top: 0px; */
-  /* background: url(/images/bg-code-blue.svg); */
-  /* background-repeat: no-repeat;
-  background-position: center; */
-  /* background: linear-gradient(270deg, #000000 12.39%, rgba(0, 0, 0, 0) 50%), url(/images/bg-code-blue.svg); */
-  /* background: url(/images/bg_personal.png);
-  background-repeat: no-repeat;
-  background-position: left;
-  opacity: 0.5; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -37,11 +18,9 @@ const InfoBase = styled.div`
   clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px calc(100% - 50px));
   padding-bottom: 50px;
   background: url(/images/bg-code-blue.png), #161616;
-  /* box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); */
 `;
 
 const InfoBox = styled.div`
-  /* border: 1px solid red; */
   max-width: ${({ theme }) => theme.maxWidth};
   min-height: 25vh;
   min-width: 450px;
@@ -69,7 +48,7 @@ const InfoLinks = styled.div`
       display: none;
     `,
   })}
-  /* margin-bottom: auto; */
+  color: #717171;
 `;
 
 const InfoText = styled.div`
@@ -93,12 +72,29 @@ const InfoText = styled.div`
   })}
 `;
 
-const InfoImg = styled.img`
-  margin-left: 10px;
-  max-width: 30px;
-  max-height: 30px;
-  cursor: pointer;
+const HeaderText = styled.div`
+  display: flex;
+  color: ${({ theme }) => theme.colors.secondary.main.contrastText};
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  ${breakpointsMedia({
+    md: css`
+      margin-left: auto;
+      margin-right: 0px;
+    `,
+  })}
 `;
+
+// const InfoImg = styled.img`
+//   margin-left: 10px;
+//   max-width: 30px;
+//   max-height: 30px;
+//   cursor: pointer;
+// `;
 
 const InfoOptions = styled.div`
   display: flex;
@@ -106,13 +102,8 @@ const InfoOptions = styled.div`
   min-height: 30px;
   width: 100%;
   padding: 5px;
-`;
-
-const InfoOptionsRight = styled(InfoOptions)`
-  display: flex;
-  margin-left: auto;
-  max-width: 400px;
-  padding: 0px;
+  justify-content: flex-end;
+  color: #717171;
 `;
 
 const selectedButton = css`
@@ -139,8 +130,9 @@ const Button = styled.div`
   color: ${({ theme }) => theme.colors.button.primary.contrastText};
   background: ${({ theme }) => theme.colors.button.primary.bgcolor};
   transition: opacity ${({ theme }) => theme.transition};
-  border: 0px;
+  border: 2px solid ${({ theme }) => theme.colors.button.primary.bgcolor};
   padding-left: 5px;
+  margin-left: 10px;
   :hover{
     color: ${({ theme }) => theme.colors.button.primary.contrastText};
     background: ${({ theme }) => theme.colors.button.primary.bgcolor};
@@ -155,26 +147,42 @@ const Button = styled.div`
   ${({ isSelected }) => (isSelected ? selectedButton : unselectedButton)}
 `;
 
-const ButtonRight = styled(Button)`
-  margin-left: auto;
-  padding-left: 10px;
+const Nav = styled.nav`
+  filter: drop-shadow(0 9px 4px rgba(0, 0, 0, 0.3));
 `;
 
-const HeaderLanguages = styled.div`
-  display: flex;
-  margin-left: auto;
+const LogoGithub = styled(Github)`
+  display: none;
+  width: 30px;
+  height: 30px;
   margin-right: auto;
-  opacity: 0.4;
+  cursor: pointer;
   ${breakpointsMedia({
     md: css`
-      display: none;
-      margin-right: 0;
+      display: flex;
     `,
   })}
 `;
 
-const Nav = styled.nav`
-  filter: drop-shadow(0 9px 4px rgba(0, 0, 0, 0.3));
+const LogoLinkedin = styled(Linkedin)`
+  display: none;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+  ${breakpointsMedia({
+    md: css`
+      display: flex;
+    `,
+  })}
+`;
+
+const LgLinkedinMob = styled(LogoLinkedin)`
+  display: flex;
+`;
+
+const LgGitMob = styled(LogoGithub)`
+  display: flex;
 `;
 
 export default function Info() {
@@ -185,24 +193,27 @@ export default function Info() {
       <InfoBase>
         <InfoBox>
           <Header />
+          <HeaderText>&quot;Inovação e aprendizado constante&quot;</HeaderText>
           <InfoLinks>
-            <a href="https://github.com/penadev" target="_blank">
-              <InfoImg src="/images/github-sign_gray.png" />
-            </a>
-            <a href="https://www.linkedin.com/in/nandopena/" target="_blank">
-              <InfoImg src="/images/linkedin_gray.png" />
-            </a>
-            <HeaderLanguages>
-              <InfoImg src="/images/brasil.png" />
-              <InfoImg src="/images/united-states.png" />
-            </HeaderLanguages>
+            <Link href="https://www.linkedin.com/in/nandopena/">
+              <LgLinkedinMob />
+            </Link>
+            <Link href="https://github.com/penadev">
+              <LgGitMob />
+            </Link>
           </InfoLinks>
           <InfoText>
             Há mais de 15 anos atuando na área de Tecnologia.
             Atualmente como Arquiteto de Soluções e desenvolvedor full stack senior.
-            Com vasta experiência em projetos de grandes porte e  implementação.
+            Com vasta experiência em projetos de grande porte e implementações.
           </InfoText>
           <InfoOptions>
+            <Link href="https://www.linkedin.com/in/nandopena/">
+              <LogoLinkedin />
+            </Link>
+            <Link href="https://github.com/penadev">
+              <LogoGithub />
+            </Link>
             <Button
               isSelected={router.pathname === '/'}
               onClick={(event) => {
@@ -212,20 +223,18 @@ export default function Info() {
             >
               Portifólio
             </Button>
-            <InfoOptionsRight>
-              <ButtonRight
-                isSelected={router.pathname === '/skill'}
-                onClick={() => router.push('/skill', undefined, { shallow: true })}
-              >
-                Skills
-              </ButtonRight>
-              <ButtonRight
-                isSelected={router.pathname === '/about'}
-                onClick={() => router.replace('/about')}
-              >
-                Sobre mim
-              </ButtonRight>
-            </InfoOptionsRight>
+            <Button
+              isSelected={router.pathname === '/skill'}
+              onClick={() => router.replace('/skill')}
+            >
+              Skills
+            </Button>
+            <Button
+              isSelected={router.pathname === '/about'}
+              onClick={() => router.replace('/about')}
+            >
+              Sobre mim
+            </Button>
           </InfoOptions>
         </InfoBox>
       </InfoBase>

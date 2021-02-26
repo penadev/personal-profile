@@ -4,7 +4,6 @@ import Card from '../Card';
 import db from '../../../../db.json';
 
 const MainBase = styled.div`
-  min-height: 50vh;
   max-width: ${({ theme }) => theme.maxWidth};
   width: 100%;
   background: ${({ theme }) => theme.colors.background.main.color};
@@ -15,14 +14,21 @@ const MainBase = styled.div`
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
-  /* background: url(/images/bg-code-green.svg);
-  background-repeat: no-repeat;
-  background-position: center; */
+`;
+
+MainBase.Text = styled.div`
+  margin-left: 35px;
+  min-width: 100%;
+  font-family: ${({ theme }) => theme.fontFamilyLogo};
+  font-size: 24px;
+  font-weight: 400;
+  color: #606060;
 `;
 
 export default function Main() {
   return (
     <MainBase>
+      <MainBase.Text>Projetos</MainBase.Text>
       {db.portifolio.map((portifolio) => {
         const imgSrc = '/images/mais.png';
         return (

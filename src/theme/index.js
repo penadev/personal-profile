@@ -20,8 +20,8 @@ export const colors = {
       contrastText: '#000',
     },
     secondary: {
-      bgcolor: '#5A8B5C',
-      contrastText: '#D6D6D6',
+      bgcolor: '#000',
+      contrastText: '#A3FFBF',
     },
   },
   cards: {
@@ -30,7 +30,7 @@ export const colors = {
     secondary: {
       bgcolor: '#C4C4C4',
       color: '#008D0E',
-    }
+    },
   },
   primary: {
     main: {

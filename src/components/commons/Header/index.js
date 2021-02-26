@@ -8,29 +8,23 @@ const HeaderBase = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
   align-items: center;
   padding: 0px;
   padding-bottom: 3px;
-  ${breakpointsMedia({
-    md: css`
-      /* border: 2px solid;
-      border-top: 0;
-      border-left: 0;
-      border-right: 0; */
-      `,
-  })}
 `;
 
 const HeaderName = styled.div`
   display: flex;
   font-family: ${({ theme }) => theme.fontFamilyLogo};
-  font-size: 36px;
+  font-size: 42px;
   color: ${({ theme }) => theme.colors.primary.main.contrastText};
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
+  align-items: center;
   ${breakpointsMedia({
     md: css`
+      font-size: 48px;
       margin-left: 0;
       margin-right: 0;
     `,
@@ -42,24 +36,20 @@ const HeaderColor = styled.span`
   margin-left: 10px;
 `;
 
-const HeaderText = styled.div`
-  display: flex;
-  color: ${({ theme }) => theme.colors.primary.main.contrastText};
-  font-size: 18px;
-  font-weight: 700;
-  font-style: italic;
-  margin-right: auto;
-  margin-left: auto;
-`;
-
 const HeaderLanguages = styled.div`
-  display: none;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  position: absolute;
+  right: 20px;
+  align-items: center;
+  opacity: 0.4;
   ${breakpointsMedia({
     md: css`
+      position: relative;
       display: flex;
-      margin-right: 0;
+      margin-left: auto;
+      padding-right: 0px;
+      right: 0;
+      opacity: 0.6;
     `,
   })}
 `;
@@ -70,6 +60,8 @@ const HeaderImg = styled.img`
 `;
 
 export default function Header() {
+  const [isLangPTBR, setLang] = React.useState(true);
+
   return (
     <HeaderBase>
       <HeaderName>
@@ -78,10 +70,9 @@ export default function Header() {
           PENA
         </HeaderColor>
       </HeaderName>
-      <HeaderText>&quot;Inovação e aprendizado constante&quot;</HeaderText>
       <HeaderLanguages>
-        <HeaderImg src="/images/brasil.png" />
-        <HeaderImg src="/images/united-states.png" />
+        {isLangPTBR && <HeaderImg src="/images/united-states.png" onClick={() => setLang(!isLangPTBR)} />}
+        {!isLangPTBR && <HeaderImg src="/images/brasil.png" onClick={() => setLang(!isLangPTBR)} />}
       </HeaderLanguages>
     </HeaderBase>
   );
