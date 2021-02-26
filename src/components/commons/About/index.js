@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const MainBase = styled.div`
   min-height: 50vh;
-  background: #121212;
+  background: ${({ theme }) => theme.colors.background.main.color};
   display: flex;
   flex-direction: row;
   justify-content: center;

@@ -9,14 +9,14 @@ const Card = styled.div`
     min-width: 350px;
     min-height: 300px;
     max-height: 300px;
-    margin: 10px;
+    margin: 15px;
     background: ${({ theme }) => theme.colors.cards.bgcolor};
     color: ${({ theme }) => theme.colors.cards.color};;
     box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
     font-family: ${({ theme }) => theme.fontFamily};
     font-size: 16x;
-
+    border-radius: 0px 24px;
 `;
 
 Card.Image = styled.div`
@@ -24,11 +24,10 @@ Card.Image = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    border: 0px;
-    position: relative;
     min-width: 350px;
     min-height: 220px;
     max-height: 250px;
+    border-radius: 0px 24px 0px 0px;
 `;
 
 Card.Others = styled.img`

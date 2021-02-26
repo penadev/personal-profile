@@ -3,25 +3,57 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+import Header from '../Header';
 
 const InfoBase = styled.div`
-  /* border: 1px solid; */
-  min-height: 20vh;
+  /* border: 1px solid green; */
+  /* min-height: 30vh;
   min-width: 450px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   padding: 10px;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  /* position: absolute;
+  width: 1440px;
+  height: 323px;
+  left: 1px;
+  top: 0px; */
   /* background: url(/images/bg-code-blue.svg); */
   /* background-repeat: no-repeat;
   background-position: center; */
-  background: linear-gradient(270deg, #000000 12.39%, rgba(0, 0, 0, 0) 50%), url(/images/bg-code-blue.svg);
+  /* background: linear-gradient(270deg, #000000 12.39%, rgba(0, 0, 0, 0) 50%), url(/images/bg-code-blue.svg); */
   /* background: url(/images/bg_personal.png);
   background-repeat: no-repeat;
   background-position: left;
   opacity: 0.5; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px calc(100% - 50px));
+  padding-bottom: 50px;
+  background: url(/images/bg-code-blue.png), #161616;
+  /* box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); */
+`;
+
+const InfoBox = styled.div`
+  /* border: 1px solid red; */
+  max-width: ${({ theme }) => theme.maxWidth};
+  min-height: 25vh;
+  min-width: 450px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 `;
 
 const InfoLinks = styled.div`
@@ -34,6 +66,7 @@ const InfoLinks = styled.div`
     md: css`
       padding: 0px;
       margin-left: auto;
+      display: none;
     `,
   })}
   /* margin-bottom: auto; */
@@ -140,53 +173,62 @@ const HeaderLanguages = styled.div`
   })}
 `;
 
+const Nav = styled.nav`
+  filter: drop-shadow(0 9px 4px rgba(0, 0, 0, 0.3));
+`;
+
 export default function Info() {
   const router = useRouter();
 
   return (
-    <InfoBase>
-      <InfoLinks>
-        <a href="https://github.com/penadev" target="_blank">
-          <InfoImg src="/images/github-sign_gray.png" />
-        </a>
-        <a href="https://www.linkedin.com/in/nandopena/" target="_blank">
-          <InfoImg src="/images/linkedin_gray.png" />
-        </a>
-        <HeaderLanguages>
-          <InfoImg src="/images/brasil.png" />
-          <InfoImg src="/images/united-states.png" />
-        </HeaderLanguages>
-      </InfoLinks>
-      <InfoText>
-        Há mais de 15 anos atuando na área de Tecnologia.
-        Atualmente como Arquiteto de Soluções e desenvolvedor full stack senior.
-        Com vasta experiência em projetos de grandes porte e  implementação.
-      </InfoText>
-      <InfoOptions>
-        <Button
-          isSelected={router.pathname === '/'}
-          onClick={(event) => {
-            event.preventDefault();
-            router.push('/');
-          }}
-        >
-          Portifólio
-        </Button>
-        <InfoOptionsRight>
-          <ButtonRight
-            isSelected={router.pathname === '/skill'}
-            onClick={() => router.push('/skill', undefined, { shallow: true })}
-          >
-            Skills
-          </ButtonRight>
-          <ButtonRight
-            isSelected={router.pathname === '/about'}
-            onClick={() => router.replace('/about')}
-          >
-            Sobre mim
-          </ButtonRight>
-        </InfoOptionsRight>
-      </InfoOptions>
-    </InfoBase>
+    <Nav>
+      <InfoBase>
+        <InfoBox>
+          <Header />
+          <InfoLinks>
+            <a href="https://github.com/penadev" target="_blank">
+              <InfoImg src="/images/github-sign_gray.png" />
+            </a>
+            <a href="https://www.linkedin.com/in/nandopena/" target="_blank">
+              <InfoImg src="/images/linkedin_gray.png" />
+            </a>
+            <HeaderLanguages>
+              <InfoImg src="/images/brasil.png" />
+              <InfoImg src="/images/united-states.png" />
+            </HeaderLanguages>
+          </InfoLinks>
+          <InfoText>
+            Há mais de 15 anos atuando na área de Tecnologia.
+            Atualmente como Arquiteto de Soluções e desenvolvedor full stack senior.
+            Com vasta experiência em projetos de grandes porte e  implementação.
+          </InfoText>
+          <InfoOptions>
+            <Button
+              isSelected={router.pathname === '/'}
+              onClick={(event) => {
+                event.preventDefault();
+                router.push('/');
+              }}
+            >
+              Portifólio
+            </Button>
+            <InfoOptionsRight>
+              <ButtonRight
+                isSelected={router.pathname === '/skill'}
+                onClick={() => router.push('/skill', undefined, { shallow: true })}
+              >
+                Skills
+              </ButtonRight>
+              <ButtonRight
+                isSelected={router.pathname === '/about'}
+                onClick={() => router.replace('/about')}
+              >
+                Sobre mim
+              </ButtonRight>
+            </InfoOptionsRight>
+          </InfoOptions>
+        </InfoBox>
+      </InfoBase>
+    </Nav>
   );
 }

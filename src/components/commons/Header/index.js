@@ -5,18 +5,19 @@ import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 const HeaderBase = styled.div`
   border: 0;  
   min-height: 5vh;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   /* justify-content: space-between; */
   align-items: center;
-  padding: 10px;
+  padding: 0px;
   padding-bottom: 3px;
   ${breakpointsMedia({
     md: css`
-      border: 2px solid;
+      /* border: 2px solid;
       border-top: 0;
       border-left: 0;
-      border-right: 0;
+      border-right: 0; */
       `,
   })}
 `;

@@ -15,7 +15,6 @@ body {
   font-family: ${({ theme }) => theme.fontFamily};
   background-color: ${({ theme }) => theme.colors.background.main.color};
   color: ${({ theme }) => theme.colors.primary.main.color};
-  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }

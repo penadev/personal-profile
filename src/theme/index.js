@@ -6,7 +6,7 @@ export const colors = {
       color: '#FFFFFF',
     },
     main: {
-      color: '#000000',
+      color: '#D4D4D4',
     },
   },
   borders: {
@@ -25,7 +25,7 @@ export const colors = {
     },
   },
   cards: {
-    bgcolor: '#303030',
+    bgcolor: '#FDFDFD',
     color: '#0098BA',
     secondary: {
       bgcolor: '#C4C4C4',
@@ -77,4 +77,5 @@ export default {
   fontFamilyLogo: '\'Fugaz One\', sans-serif',
   fontFamilyFooter: '\'Libre Barcode 39 Text\', sans-serif',
   transition: '200ms ease-in-out',
+  maxWidth: '1160px',
 };

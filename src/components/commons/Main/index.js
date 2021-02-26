@@ -5,12 +5,16 @@ import db from '../../../../db.json';
 
 const MainBase = styled.div`
   min-height: 50vh;
-  background: #121212;
+  max-width: ${({ theme }) => theme.maxWidth};
+  width: 100%;
+  background: ${({ theme }) => theme.colors.background.main.color};
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
   /* background: url(/images/bg-code-green.svg);
   background-repeat: no-repeat;
   background-position: center; */
