@@ -7,7 +7,8 @@
     "start": "next start",
     "eslint:init": "eslint --init",
     "lint": "eslint ./ --fix --ignore-path .gitignore .",
-    "custom-script": "node ./script-test.js"
+    "custom-script": "node ./script-test.js",
+    "commit": "cz"
   },
   "dependencies": {
     "@styled-icons/simple-icons": "^10.28.0",
