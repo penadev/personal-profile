@@ -1,8 +1,8 @@
 import React from 'react';
 // import styled from 'styled-components';
-import Info from '../../src/components/commons/Info';
-import About from '../../src/components/commons/About';
-import Footer from '../../src/components/commons/Footer';
+import Info from '../../src/components/foundation/Info';
+import About from '../../src/components/foundation/About';
+import Footer from '../../src/components/foundation/Footer';
 
 export default function Home() {
   return (
