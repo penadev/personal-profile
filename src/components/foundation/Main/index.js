@@ -1,6 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import Card from '../Card';
+import Card from '../../commons/Card';
 import db from '../../../../db.json';
 
 const MainBase = styled.div`
@@ -32,15 +33,21 @@ export default function Main() {
       {db.portifolio.map((portifolio) => {
         const imgSrc = '/images/mais.png';
         return (
-          <Card key={portifolio.key}>
-            <Card.Image backgroundImage={portifolio.image}>
-              <Card.Skill>
-                {portifolio.skill}
-              </Card.Skill>
-            </Card.Image>
-            {portifolio.text}
-            <Card.Others src={imgSrc} />
-          </Card>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            key={portifolio.key}
+          >
+            <Card key={portifolio.key}>
+              <Card.Image backgroundImage={portifolio.image}>
+                <Card.Skill>
+                  {portifolio.skill}
+                </Card.Skill>
+              </Card.Image>
+              {portifolio.text}
+              <Card.Others src={imgSrc} />
+            </Card>
+          </motion.div>
         );
       })}
     </MainBase>
